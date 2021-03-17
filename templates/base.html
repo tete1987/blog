@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="/static/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> <!-- https://fonts.google.com/ -->
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/templatemo-xtra-blog.css" rel="stylesheet">
+<!--
+
+TemplateMo 553 Xtra Blog
+
+https://templatemo.com/tm-553-xtra-blog
+
+-->
+
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="container-fluid">
+        <main class="tm-main">
+            <!-- Search form -->
+            <div class="row tm-row">
+                <div class="col-12">
+                    <form method="GET" class="form-inline tm-mb-80 tm-search-form" action="/search/">
+                        <input class="form-control tm-search-input" name="q" type="text" placeholder="搜索" aria-label="Search" >
+                        <button class="tm-search-button" type="submit">
+                            <i class="fas fa-search tm-search-icon"   aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% block main %}
+
+        {% endblock %}
+        <div>
+            {% include 'right.html' %}
+        </div>
+
+        {% include 'footer.html' %}
+
+        </main>
+    </div>
+    <script src="static/jquery.min.js"></script>
+    <script src="static/templatemo-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load myfiler %}
+{% block title %}分类{% endblock %}
+
+{% block main %}
+    <div class="row tm-row">
+        {% for post in postList%}
+            <article class="col-12 col-md-6 tm-post">
+            <hr class="tm-hr-primary">
+            <a href="/post/{{ post.id }}" class="effect-lily tm-post-link tm-pt-60">
+                <div class="tm-post-link-inner">
+
+                    <img src="{{ post.id|getPic}}" alt="Image" class="img-fluid" style="height: 280px">
+                </div>
+
+
+                <h2 class="tm-pt-30 tm-color-primary tm-post-title">{{ post.title}}</h2>
+            </a>
+            <p class="tm-pt-30">
+                {{ post.description}}
+            </p>
+            <div class="d-flex justify-content-between tm-pt-45">
+                {% for tag in post.tag.all %}
+                <span class="tm-color-primary-tag" >{{ tag.tname }}</span>
+                    {% endfor %}
+                <span class="tm-color-primary">{{ post.create_time|date:'Y-m-d H:i:s'}}</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <span>Admin</span>
+            </div>
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}

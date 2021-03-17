@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load myfiler %}
+
+{% block title %}
+详情页面
+{% endblock %}
+
+{% block main %}
+   <div class="row tm-row">
+        <div class="col-lg-8 tm-post-col">
+            <div class="tm-post-full">
+                <div class="mb-4">
+                    <hr class="tm-hr-primary tm-mb-45">
+                    <h2 class="pt-2 tm-color-primary tm-post-title">{{ post.title}}</h2>
+                    <p class="tm-mb-40">{{ post.create_time|date:'Y-m-d H:i:s'}}</p>
+                    <div style="width: 900px">
+                        {{ post.content|md|safe }}
+                    </div>
+                    <div>
+                        {% for t in post.tag.all %}
+                            <span class="d-block text-right tm-color-primary-tag"  >{{ t.tname }}&emsp;</span>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="bshare-custom icon-medium-plus" ><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
